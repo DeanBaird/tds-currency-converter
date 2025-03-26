@@ -32,7 +32,7 @@ export class CurrencyConverterContainerComponent implements OnInit {
     this.currencyForm = this.formBuilder.group({
       from: ['', Validators.required],
       to: ['', Validators.required],
-      amount: [0, [Validators.required, Validators.min(0.01),]],
+      amount: [0, [Validators.required]],
     });
   }
 
@@ -41,7 +41,7 @@ export class CurrencyConverterContainerComponent implements OnInit {
   }
 
   getConvertedValue(event: { formValue: convert }): void {
-    if (this.currencyForm.valid) {
+    if (this.currencyForm.valid && this.currencyForm.get('amount')?.value !== 0) {
       this.store.dispatch(
         CurrencyActions.postConvertCurrency({ payload: event.formValue })
       );

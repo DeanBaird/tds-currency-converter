@@ -18,7 +18,7 @@
 - The converted value will be reactive and will appear on the change of any input values
 - The outputed value should contain the code and symbol of the currency
 - The dropdown of the currency list should also contain the currency short code
-- Amount input should be to two decimal places, restrict negative numbers and text, maximum of 20 digits to suit    APIs limits
+- Amount input should be to two decimal places, restrict text and maximum of 20 digits to suit APIs limits
 
 ## How to run the project
 
