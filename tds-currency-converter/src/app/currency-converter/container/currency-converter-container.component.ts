@@ -32,7 +32,7 @@ export class CurrencyConverterContainerComponent implements OnInit {
     this.currencyForm = this.formBuilder.group({
       from: ['', Validators.required],
       to: ['', Validators.required],
-      amount: [0, [Validators.required, Validators.min(0.01),]],
+      amount: [0, [Validators.required]],
     });
   }
 
