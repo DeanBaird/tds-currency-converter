@@ -23,7 +23,7 @@
 ## How to run the project
 
 - Clone the project from my github repo https://github.com/DeanBaird/tds-currency-converter
-- cd into tds-currency-converter
+- cd into tds-currency-converter/tds-currency-converter
 - Run npm install
 - After the packages are installed run ng serve
 - Application should be available on 
