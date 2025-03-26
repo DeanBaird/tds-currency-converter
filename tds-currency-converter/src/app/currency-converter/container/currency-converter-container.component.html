@@ -1,0 +1,10 @@
+<form [formGroup]="currencyForm">
+  <app-currency-converter
+    *ngIf="currencies$ | async as currencies"
+    [currencies]="currencies"
+    [convertedValueCurrencyObject]="convertedValueCurrencyObject$ | async"
+    [currencyForm]="currencyForm"
+    [convertedValue]="convertedAmount$ | async"
+    (convertValue)="getConvertedValue($event)"
+  ></app-currency-converter>
+</form>

@@ -1,0 +1,62 @@
+<form [formGroup]="currencyForm">
+  <main class="main">
+    <div class="content">
+      <div class="row">
+        <div class="input-group">
+          <label>Currency from:</label>
+          <select formControlName="from" (ngModelChange)="emitConvertValue()">
+            <option value="" selected>Select a currency</option>
+
+            <option
+              *ngFor="let currency of currencies"
+              [value]="currency.short_code"
+            >
+              {{ currency.name }} ({{ currency.short_code }})
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Enter Amount:</label>
+          <input
+            type="number"
+            formControlName="amount"
+            (keydown)="validateDecimals($event)"
+            (input)="enforceTwoDecimals($event)"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group">
+          <label>Currency to:</label>
+          <select formControlName="to" (ngModelChange)="emitConvertValue()">
+            <option value="" selected>Select a currency</option>
+            <option
+              *ngFor="let currency of currencies"
+              [value]="currency.short_code"
+            >
+              {{ currency.name }} ({{ currency.short_code }})
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Converted Amount:</label>
+          <h1 *ngIf="convertedValueCurrencyObject?.symbol_first">
+            {{ convertedValueCurrencyObject?.symbol }}
+            {{ convertedValue | number : "1.2-2" }} ({{
+              convertedValueCurrencyObject?.short_code
+            }})
+          </h1>
+          <h1 *ngIf="!convertedValueCurrencyObject?.symbol_first">
+            {{ convertedValue | number : "1.2-2" }}
+            {{ convertedValueCurrencyObject?.symbol }} ({{
+              convertedValueCurrencyObject?.short_code
+            }})
+          </h1>
+        </div>
+      </div>
+    </div>
+  </main>
+</form>
