@@ -41,7 +41,7 @@ export class CurrencyConverterContainerComponent implements OnInit {
   }
 
   getConvertedValue(event: { formValue: convert }): void {
-    if (this.currencyForm.valid) {
+    if (this.currencyForm.valid && this.currencyForm.get('amount')?.value !== 0) {
       this.store.dispatch(
         CurrencyActions.postConvertCurrency({ payload: event.formValue })
       );
